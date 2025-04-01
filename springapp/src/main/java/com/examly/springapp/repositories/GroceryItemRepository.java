@@ -19,11 +19,8 @@ public interface GroceryItemRepository extends JpaRepository<GroceryItem,Long>{
 
     Page<GroceryItem> findAll(Pageable pageable);
 
-    @Query("SELECT g FROM GroceryItem g WHERE g.category = ?1")
-    List<GroceryItem> findByCategory(String category);
-
-    @Query("SELECT g FROM GroceryItem g ORDER BY g.itemName ASC")
-    List<GroceryItem> findAllSortedByName();
+    @Query("SELECT g FROM GroceryItem g ORDER BY g.name ASC")
+    List<GroceryItem> findAllByOrderByNameAsc();
 
 
     @Query("SELECT g FROM GroceryItem g WHERE g.price < ?1")
@@ -36,14 +33,9 @@ public interface GroceryItemRepository extends JpaRepository<GroceryItem,Long>{
 
     @Transactional
     @Modifying
-    @Query("UPDATE GroceryItem g SET g.price = ?2 WHERE g.itemId = ?1")
+    @Query("UPDATE GroceryItem g SET g.price = ?2 WHERE g.id = ?1")
     void updateItemPrice(int itemId, double newPrice);
 
-    @Transactional
-    @Modifying
-    @Query("DELETE FROM GroceryItem g WHERE g.expiryDate < ?1")
-    void deleteExpiredItems(String expiryDate);
 
-    @SuppressWarnings("null")
     List<GroceryItem> findAll(Sort sort);
 }

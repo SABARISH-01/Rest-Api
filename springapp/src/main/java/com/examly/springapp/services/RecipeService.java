@@ -31,7 +31,7 @@ public class RecipeService{
         return recipeRepo.findById(id)
         .map(recipe -> {
             recipe.setName(updatedRecipe.getName());
-            recipe.setInstructions(updatedRecipe.getInstructions());
+            recipe.setIngredients(updatedRecipe.getIngredients());
             return recipeRepo.save(recipe);
         })
         .orElseThrow(() -> new RuntimeException("Recipe not found"));

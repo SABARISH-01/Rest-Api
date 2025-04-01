@@ -43,8 +43,7 @@ public class GroceryItemController {
     }
 
     @GetMapping("/paginated/sorted")
-    public List<GroceryItem> getPaginatedSortedItems(@RequestParam int pageNumber, @RequestParam int pageSize,
-                                                     @RequestParam String field, @RequestParam String direction) {
+    public List<GroceryItem> getPaginatedSortedItems(@RequestParam int pageNumber, @RequestParam int pageSize, @RequestParam String field, @RequestParam String direction) {
         return groceryItemService.getPaginatedSortedItems(pageNumber, pageSize, field, direction);
     }
 
@@ -60,9 +59,6 @@ public class GroceryItemController {
         groceryItemService.updateItemPrice(id, price);
     }
 
-    @DeleteMapping("/delete-expired/{expiryDate}")
-    public void deleteExpiredItems(@PathVariable String expiryDate) {
-        groceryItemService.deleteExpiredItems(expiryDate);
-    }
+    
     
 }

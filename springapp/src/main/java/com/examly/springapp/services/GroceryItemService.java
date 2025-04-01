@@ -54,8 +54,5 @@ public class GroceryItemService {
         groceryItemRepository.updateItemPrice(itemId, newPrice);
     }
 
-    // Delete expired grocery items by expiry date
-    public void deleteExpiredItems(String expiryDate) {
-        groceryItemRepository.deleteExpiredItems(expiryDate);
-    }
+    
 }
