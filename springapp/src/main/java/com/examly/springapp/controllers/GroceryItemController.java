@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.examly.springapp.entities.GroceryItem;
 import com.examly.springapp.services.GroceryItemService;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
